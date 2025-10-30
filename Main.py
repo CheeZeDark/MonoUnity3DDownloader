@@ -15,9 +15,10 @@ def SetGitDownloadAndCreateFolder(git_websitesrccode : str, env_name, foldername
     os.system("mkdir {}".format(os.environ[env_name]))
     os.system("git clone {} --recurse-submodules {}".format(git_websitesrccode, os.environ[env_name]))
     if(p.exists(os.environ[env_name] + "\\msvc\\mono.sln")):
-        print("You Need to write in Manual this Command inside Downloaded Mono from Unity3D: git submodule update --init --recursive \nIt is needed to update submodules!!!")
+        print("Successfully Founded mono.sln(Please Set VS 2022 Pro in System Environment aka conhost)")
         time.sleep(4)
         os.system("start devenv.exe {}".format(os.environ[env_name] + "\\msvc\\mono.sln"))
+        exit(3312)
     else:
         print("Failed to Found mono.sln... Please Try Again or Run this as Administrator and make sure what Visual Studio 2022 is in System Environment!!!")
         time.sleep(4)
@@ -41,4 +42,5 @@ def Main():
         exit(4435)
 
 if __name__ == "__main__":
+
     Main()
