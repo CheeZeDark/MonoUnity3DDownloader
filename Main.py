@@ -4,7 +4,7 @@ import PyBass.bass as b
 import os.path as p
 import time
 from os import _exit as exit
-def GetFoundedMusic(musicname : str):
+def GetFoundedFile(musicname : str):
     if(p.exists(musicname)):
         return True
     else:
@@ -37,7 +37,7 @@ def PlayMusic(filename):
         exit(443)
 
 def Main():
-    if GetFoundedMusic("MrRobotMainMenu.mp3"):
+    if GetFoundedFile("MrRobotMainMenu.mp3"):
         PlayMusic("MrRobotMainMenu.mp3")
         SetGitDownloadAndCreateFolder("https://github.com/Unity-Technologies/mono.git", "MONO_UNITY3DFOLDER_SRCCODE", "MonoFromUnity3D\\mono")
     else:
@@ -45,4 +45,5 @@ def Main():
 
 if __name__ == "__main__":
     Main()
+
 
