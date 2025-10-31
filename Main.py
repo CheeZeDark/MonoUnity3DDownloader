@@ -13,14 +13,16 @@ def GetFoundedMusic(musicname : str):
 def SetGitDownloadAndCreateFolder(git_websitesrccode : str, env_name, foldername):
     os.environ[env_name] = foldername
     os.system("mkdir {}".format(os.environ[env_name]))
+    print("Please Set VS 2022 Pro in System Environment aka conhost because this script only works if VS 2022 already set in System Environment!!!")
     os.system("git clone {} --recurse-submodules {}".format(git_websitesrccode, os.environ[env_name]))
     if(p.exists(os.environ[env_name] + "\\msvc\\mono.sln")):
-        print("Successfully Founded mono.sln(Please Set VS 2022 Pro in System Environment aka conhost)")
+        print("Successfully Founded mono.sln!!! Trying to run Visual Studio 2022 Pro or Any of Edition...")
         time.sleep(4)
         os.system("start devenv.exe {}".format(os.environ[env_name] + "\\msvc\\mono.sln"))
+        print("Successfully Launched!!!")
         exit(3312)
     else:
-        print("Failed to Found mono.sln... Please Try Again or Run this as Administrator and make sure what Visual Studio 2022 is in System Environment!!!")
+        print("Failed to Found mono.sln... Please Try Again or Run this as Administrator!!!")
         time.sleep(4)
         exit(221)
 
@@ -43,3 +45,4 @@ def Main():
 
 if __name__ == "__main__":
     Main()
+
