@@ -4,7 +4,7 @@ import PyBass.bass as b
 import os.path as p
 import time
 from os import _exit as exit
-def GetFoundedFile(musicname : str):
+def GetFoundedFile(filename : str):
     if(p.exists(musicname)):
         return True
     else:
@@ -45,5 +45,6 @@ def Main():
 
 if __name__ == "__main__":
     Main()
+
 
 
